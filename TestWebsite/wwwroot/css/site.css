@@ -1,0 +1,70 @@
+﻿html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.section-titles{
+    text-align: left;
+}
+
+#all-books{
+    display: grid;
+    grid-template-columns:repeat(4, 1fr);
+    gap: 10px;
+}
+
+#bestsellers {
+    display: flex;
+    justify-content: center; /* This will center the books */
+    gap: 30px;
+}
+
+.book {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 250px; /* Adjusted width */
+    height: auto; /* Height adjusts based on content */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers the book cover and text */
+}
+
+.book img {
+    width: auto; /* Width adjusts to maintain aspect ratio */
+    height: 200px; /* Fixed height for the image */
+    object-fit: contain; /* Ensures the entire image fits, no cropping */
+}
+
+.book h5 {
+    margin: 0.5em 0;
+    white-space: nowrap; /* Prevents text from wrapping */
+    overflow: hidden; /* Hide text that doesn't fit */
+    text-overflow: ellipsis; /* Add ellipsis to overflowed text */
+    width: 100%; /* Ensures the title width doesn't exceed the container */
+}
+
+.book p {
+    margin: 5px 0;
+}
+
+.section-container{
+    padding-bottom: 50px;
+}

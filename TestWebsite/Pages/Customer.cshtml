@@ -1,0 +1,30 @@
+﻿@page
+@model TestWebsite.Pages.CustomerModel
+
+@{
+    ViewData["Title"] = "Customer Profile";
+}
+
+<div class="text-center">
+    <h2>Welcome, @Model.Customer.Name!</h2>
+    <p>Email: @Model.Customer.Email</p>
+    <h3>Past Orders</h3>
+    <table>
+        <tr>
+            <th>Order Number</th>
+            <th>Total</th>
+            <th>Order Date</th>
+        </tr>
+        @foreach (var order in Model.Orders)
+        {
+            <tr>
+                <td>@order.OrderNumber</td>
+                <td>$@order.Total.ToString()</td>
+                <td>@order.OrderDate.ToShortDateString()</td>
+            </tr>
+        }
+    </table>
+    <form method="post" asp-page-handler="Logout">
+        <button type="submit" class="btn btn-secondary">Logout</button>
+    </form>
+</div>

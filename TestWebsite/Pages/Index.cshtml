@@ -1,0 +1,57 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    <section class="section-container">
+        <h2>Bestsellers</h2>
+        <div id="bestsellers">
+            @foreach(var book in Model.BestSellers)
+            {
+                <div class="book">
+                    <h5>@book.Title</h5>
+                    <img src="@book.ImageURL" alt="Cover image of @book.Title"/>
+                    <p>by @book.Author</p>
+                    <p>Price: $@book.Price.ToString()</p>
+                </div>
+            }
+        </div>
+    </section>
+
+    <section class="section-container">
+        <h2 class="section-titles">All Books</h2>
+        <div id="all-books">
+            @foreach(var book in Model.Books)
+            {
+                <div class="book">
+                    <h5>@book.Title</h5>
+                    <img src="@book.ImageURL" alt="Cover image of @book.Title"/>
+                    <p>by @book.Author</p>
+                    <p>Price: $@book.Price.ToString()</p>
+                </div>
+            }
+            
+        </div>
+    </section>
+
+
+    <section class="section-container">
+        <h2>Contact Us</h2>
+        <form id="contact-form">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+    </section>
+
+</div>
+
