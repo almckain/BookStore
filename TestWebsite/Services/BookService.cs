@@ -1,4 +1,7 @@
 ﻿using System;
+using Microsoft.Data.SqlClient;
+using System.Data;
+
 namespace TestWebsite
 {
 	public class BookService : IBookService
@@ -8,17 +11,51 @@ namespace TestWebsite
 		 */
         public List<Book> GetBooks()
         {
-            return new List<Book>
+            List<Book> AllBooks = new List<Book>();
+            try
             {
-                new Book("Harry Potter and the Sorcerer's Stone", "J. K. Rowling", 12.99m, "/images/HarryPotter1.png"),
-                new Book("To Kill a Mockingbird", "Harper Lee", 15.49m, "/images/ToKillAMockingbird.png"),
-                new Book("Game of Thrones: A Song of Ice and Fire", "George R. R. Martin", 15.99m, "/images/GameOfThrones.png"),
-                new Book("The Great Gatsby", "F. Scott Fitzgerald", 13.99m, "/images/GreatGatsby.png"),
-                new Book("Fahrenheit 451: A Novel", "Ray Bradbury", 13.99m, "/images/Fahrenheit451.png"),
-                new Book("Of Mice and Men", "John Steinbeck", 11.99m, "/images/OfMiceAndMen.png"),
-                new Book("Great Expectations", "Charles Dickens", 8.95m, "/images/GreatExpectations.png"),
-                new Book("Project Hail Mary", "Andy Weir", 18.00m, "/images/ProjectHailMary.png")
-            };
+                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+                builder.DataSource = "mssql.cs.ksu.edu";
+                builder.UserID = "almckain";
+                builder.Password = "Septembuary1793*";
+                builder.InitialCatalog = "almckain";
+                builder.Encrypt = false;
+                using (var connection = new SqlConnection(builder.ConnectionString))
+                {
+                    connection.Open();
+
+                    //Stored Procedure
+                    String procedureToCall = "GetAllBooks"; //I think
+
+                    using (SqlCommand command = new SqlCommand(procedureToCall, connection)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    })
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string title = reader["Title"]?.ToString() ?? "Default Title";
+                                string authorName = reader["AuthorName"]?.ToString() ?? "Unknown Author";
+                                decimal price = reader["Price"] != DBNull.Value ? Convert.ToDecimal(reader["Price"]) : 0m;
+                                string coverImagePath = reader["CoverImagePath"]?.ToString() ?? "No image available";
+
+                                Console.WriteLine($"Title: {title}, Author: {authorName}, Price: ${price}, Cover Image Path: {coverImagePath}");
+                                AllBooks.Add(new Book(title, authorName, price, coverImagePath));
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine("\n\nError Connecting to database: " + e.ToString() + "\n\n");
+                System.Diagnostics.Debug.WriteLine(e.ToString());
+            }
+            return AllBooks;
+            
         }
 
         /*
@@ -26,14 +63,58 @@ namespace TestWebsite
          */
         public List<Book> GetBestSellers()
         {
-            return new List<Book>
+            List<Book> BestSellers = new List<Book>();
+            try
             {
-                new Book("Of Mice and Men", "John Steinbeck", 11.99m, "/images/OfMiceAndMen.png"),
-                new Book("Harry Potter and the Sorcerer's Stone", "J. K. Rowling", 12.99m, "/images/HarryPotter1.png"),
-                new Book("The Great Gatsby", "F. Scott Fitzgerald", 13.99m, "/images/GreatGatsby.png")
-            };
+                SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
+                builder.DataSource = "mssql.cs.ksu.edu"; //IDK
+                builder.UserID = "almckain"; //What to
+                builder.Password = "Septembuary1793*"; //Put
+                builder.InitialCatalog = "almckain"; //Here
+                builder.Encrypt = false; //Apparently is vital to the connection working?????
+
+                using (var connection = new SqlConnection(builder.ConnectionString))
+                {
+                    connection.Open();
+
+                    //Stored Procedure
+                    String procedureToCall = "GetTopSellingBooks"; //I think
+
+                    using (SqlCommand command = new SqlCommand(procedureToCall, connection)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    })
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                // HEAR YEE HEAR YEE ALL THE QUESTION MARKS ARE REQUIRED -- IF THE DB RETURNS NULL AND WE CALL TOSTRING ON IT WE WILL GET A NULL REFERENCE EXCEPTION
+                                string title = reader["Title"]?.ToString() ?? "Default Title";
+                                string authorName = reader["Author"]?.ToString() ?? "Unknown Author";
+                                string coverImagePath = reader["CoverImagePath"]?.ToString() ?? "No image available";
+                                // For price check for DBNull.Value instead of null
+                                decimal price = reader["Price"] != DBNull.Value ? Convert.ToDecimal(reader["Price"]) : 0m;
+
+                                Console.WriteLine($"Title: {title}, Author: {authorName}, Price: ${price}, Cover Image Path: {coverImagePath}");
+                                BestSellers.Add(new Book(title, authorName, price, coverImagePath));
+                            }
+                        }
+                    }
+                }
+
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine("\n\nError Connecting to database: " + e.ToString() + "\n\n");
+                System.Diagnostics.Debug.WriteLine(e.ToString());
+
+            }
+            return BestSellers;
         }
 
+        
         /*
          *  Eventually there may be another query to return all the books with a given order id???
          */
