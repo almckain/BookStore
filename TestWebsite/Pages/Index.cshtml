@@ -8,11 +8,11 @@
     <section class="section-container">
         <h2>Bestsellers</h2>
         <div id="bestsellers">
-            @foreach(var book in Model.BestSellers)
+            @foreach (var book in Model.BestSellers)
             {
                 <div class="book">
                     <h5>@book.Title</h5>
-                    <img src="@book.ImageURL" alt="Cover image of @book.Title"/>
+                    <img src="@book.ImageURL" alt="Cover image of @book.Title" />
                     <p>by @book.Author</p>
                     <p>Price: $@book.Price.ToString()</p>
                 </div>
@@ -20,21 +20,39 @@
         </div>
     </section>
 
-    <section class="section-container">
-        <h2 class="section-titles">All Books</h2>
-        <div id="all-books">
-            @foreach(var book in Model.Books)
-            {
-                <div class="book">
-                    <h5>@book.Title</h5>
-                    <img src="@book.ImageURL" alt="Cover image of @book.Title"/>
-                    <p>by @book.Author</p>
-                    <p>Price: $@book.Price.ToString()</p>
+    <!-- Combined Section for Genres and All Books -->
+    <div class="flex-container">
+        <section class="genre-section">
+            <h2>Genres</h2>
+            <form method="post">
+                <div id="genres">
+                    @foreach (var genre in Model.Genres)
+                    {
+                        <div>
+                            <input type="checkbox" id="genre-@genre.GenreID" name="selectedGenres" value="@genre.GenreID" />
+                            <label for="genre-@genre.GenreID">@genre.GenreName</label>
+                        </div>
+                    }
                 </div>
-            }
-            
-        </div>
-    </section>
+                <button type="submit" class="filter-books-btn">Filter Books</button>
+            </form>
+        </section>
+
+        <section class="books-section">
+            <h2 class="section-titles">All Books</h2>
+            <div id="all-books">
+                @foreach (var book in Model.Books)
+                {
+                    <div class="book">
+                        <h5>@book.Title</h5>
+                        <img src="@book.ImageURL" alt="Cover image of @book.Title" />
+                        <p>by @book.Author</p>
+                        <p>Price: $@book.Price.ToString()</p>
+                    </div>
+                }
+            </div>
+        </section>
+    </div>
 
 
     <section class="section-container">
@@ -52,6 +70,5 @@
             <button type="submit">Submit</button>
         </form>
     </section>
-
 </div>
 

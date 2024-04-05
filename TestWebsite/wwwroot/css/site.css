@@ -61,10 +61,45 @@ body {
     width: 100%; /* Ensures the title width doesn't exceed the container */
 }
 
-.book p {
-    margin: 5px 0;
+.book {
+    border: 1px solid #ccc; /* Adjust the color (#ccc) and width (1px) as needed */
+    padding: 10px; /* Adds some space inside the border */
+    margin-bottom: 10px; /* Adds space between book entries */
 }
+
 
 .section-container{
     padding-bottom: 50px;
 }
+
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.genre-section {
+    flex: 1;
+    margin-right: 20px; /* Adjust space between genres and books */
+    text-align: left; /* Ensure text is left-aligned */
+}
+
+.genre-section h2 {
+    text-align: left; /* Left-align the section title */
+}
+
+.genre-section #genres {
+    text-align: left; /* Left-align the container for checkboxes */
+}
+
+.genre-section #genres div {
+    text-align: left; /* Left-align individual checkbox divs */
+}
+
+
+.books-section {
+    flex: 3;
+    border: 1px solid #ccc; /* Adjust the color (#ccc) and width (1px) as needed */
+    padding: 10px; /* Adds some space inside the border */
+    margin-right: 20px; /* Adjust or remove based on layout needs */
+}
+

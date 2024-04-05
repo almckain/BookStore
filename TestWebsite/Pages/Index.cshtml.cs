@@ -10,6 +10,7 @@ public class IndexModel : PageModel
 
     public List<Book> Books { get; private set; }
     public List<Book> BestSellers { get; private set; }
+    public List<Genre> Genres { get; private set; }
 
     public IndexModel(ILogger<IndexModel> logger, IBookService bookService)
     {
@@ -21,6 +22,14 @@ public class IndexModel : PageModel
     {
         Books = _bookService.GetBooks();
         BestSellers = _bookService.GetBestSellers();
+        Genres = _bookService.GetAllGenres();
     }
+
+    public void OnPost(List<int> selectedGenres)
+    {
+        Genres = _bookService.GetAllGenres();
+        Books = _bookService.GetBooksByGenres(selectedGenres);
+    }
+
 }
 
