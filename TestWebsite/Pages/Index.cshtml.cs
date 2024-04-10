@@ -28,6 +28,8 @@ public class IndexModel : PageModel
     public void OnPost(List<int> selectedGenres)
     {
         Genres = _bookService.GetAllGenres();
+        BestSellers = _bookService.GetBestSellers();
+
         Books = _bookService.GetBooksByGenres(selectedGenres);
     }
 
