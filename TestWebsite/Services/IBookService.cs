@@ -9,6 +9,7 @@ namespace TestWebsite
 		List<Book> GetBooksByOrderNumber(int orderNumber);
 		List<Genre> GetAllGenres();
 		List<Book> GetBooksByGenres(List<int> id);
+		Book GetBookDetails(int id);
 	}
 }
 

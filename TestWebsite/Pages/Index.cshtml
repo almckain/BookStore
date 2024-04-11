@@ -10,13 +10,16 @@
         <div id="bestsellers">
             @foreach (var book in Model.BestSellers)
             {
-                <div class="book">
-                    <h5>@book.Title</h5>
-                    <img src="@book.ImageURL" alt="Cover image of @book.Title" />
-                    <p>by @book.Author</p>
-                    <p>Price: $@book.Price.ToString()</p>
-                </div>
+                <a href="/BookDetails/@book.BookID" class="book">
+                    <div>
+                        <h5>@book.Title</h5>
+                        <img src="@book.ImageURL" alt="Cover image of @book.Title" />
+                        <p>by @book.Author</p>
+                        <p>Price: $@book.Price.ToString()</p>
+                    </div>
+                </a>
             }
+
         </div>
     </section>
 

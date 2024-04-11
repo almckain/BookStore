@@ -1,0 +1,11 @@
+﻿@page "/BookDetails/{id}"
+@model TestWebsite.Pages.BookDetailsModel
+@{
+}
+
+<div class="book-details">
+    <h2>@Model.Book.Title</h2>
+    <img src="@Model.Book.ImageURL" alt="Cover image of @Model.Book.Title" />
+    <p>Author: @Model.Book.Author</p>
+    <p>Price: $@Model.Book.Price</p>
+</div>
