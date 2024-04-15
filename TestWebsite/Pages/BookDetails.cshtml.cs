@@ -20,6 +20,8 @@ namespace TestWebsite.Pages
         public void OnGet(int id)
         {
             Book = _bookService.GetBookDetails(id);
+            Console.WriteLine($"Book ID: {id}, Image URL: {Book.ImageURL}");
+
         }
     }
 }
