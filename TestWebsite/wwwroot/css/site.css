@@ -1,4 +1,6 @@
 ﻿html {
+    position: relative;
+    min-height: 100%;
   font-size: 14px;
 }
 
@@ -40,11 +42,12 @@ body {
 .book {
     border: 1px solid #ccc;
     padding: 10px;
-    width: 250px; /* Adjusted width */
+    width: 250px; /* Uniform width */
     height: auto; /* Height adjusts based on content */
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centers the book cover and text */
+    align-items: center;
+    margin-bottom: 10px; /* Adds space between book entries */
 }
 
 .book img {
@@ -60,13 +63,6 @@ body {
     text-overflow: ellipsis; /* Add ellipsis to overflowed text */
     width: 100%; /* Ensures the title width doesn't exceed the container */
 }
-
-.book {
-    border: 1px solid #ccc; /* Adjust the color (#ccc) and width (1px) as needed */
-    padding: 10px; /* Adds some space inside the border */
-    margin-bottom: 10px; /* Adds space between book entries */
-}
-
 
 .section-container{
     padding-bottom: 50px;
@@ -102,4 +98,30 @@ body {
     padding: 10px; /* Adds some space inside the border */
     margin-right: 20px; /* Adjust or remove based on layout needs */
 }
+
+#bestsellers a {
+    margin: 0;
+    padding: 0;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+
+#bestsellers a.book {
+    margin: 0;
+    padding: 0;
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    box-sizing: border-box;
+    transition: transform 0.3s ease; /* Smooth transition for scaling */
+}
+
+#bestsellers a.book:hover, #bestsellers a.book:focus {
+    transform: scale(1.05); /* Slightly enlarges the book div */
+    text-decoration: none; /* Ensures no underline appears */
+}
+
+
 
