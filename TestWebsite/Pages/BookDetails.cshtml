@@ -5,9 +5,16 @@
 
 <div class="book-details">
     <h2>@Model.Book.Title</h2>
-    <!-- <img src="@Model.Book.ImageURL" alt="Cover image of @Model.Book.Title" />-->
-    <img src="images/analysis.png" alt="Cover image of " />
-
+    <img src="@Model.Book.ImageURL" alt="Cover image of @Model.Book.Title" class="bestseller-image" />
     <p>Author: @Model.Book.Author</p>
-    <p>Price: $@Model.Book.Price</p>
+    <p>Price: $@Model.Book.Price.ToString("N2")</p>
+    <p>ISBN: @Model.Book.ISBN</p>
+    <p>Publisher: @Model.Book.Publisher?.Name</p>
+    <p>Genre: @Model.Book.Genre?.GenreName</p>
+    <p>Stock Available: @Model.Book.StockQuantity</p>
+
+    <form method="post">
+        <input type="hidden" name="bookId" value="@Model.Book.BookID" />
+        <button type="submit" class="btn btn-primary">Add to Cart</button>
+    </form>
 </div>

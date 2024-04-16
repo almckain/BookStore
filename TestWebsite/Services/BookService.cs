@@ -127,7 +127,7 @@ namespace TestWebsite
                     connection.Open();
 
                     //Stored Procedure
-                    String procedureToCall = "GetAllGenres"; //I think
+                    String procedureToCall = "GetAllGenres";
 
                     using (SqlCommand command = new SqlCommand(procedureToCall, connection)
                     {
@@ -240,15 +240,20 @@ namespace TestWebsite
                             while (reader.Read())
                             {
                                 int idd = reader["BookID"] != DBNull.Value ? Convert.ToInt32(reader["BookID"]) : 0;
-
+                                int publisherID = reader["PublisherID"] != DBNull.Value ? Convert.ToInt32(reader["PublisherID"]) : 0;
+                                int genreID = reader["GenreID"] != DBNull.Value ? Convert.ToInt32(reader["PublisherID"]) : 0;
                                 string title = reader["Title"]?.ToString() ?? "Default Title";
                                 string authorName = reader["Author"]?.ToString() ?? "Unknown Author";
+                                string isbn = reader["ISBN"]?.ToString() ?? "Unknown ISBN";
+
                                 string coverImagePath = reader["CoverImagePath"]?.ToString() ?? "No image available";
                                 decimal price = reader["Price"] != DBNull.Value ? Convert.ToDecimal(reader["Price"]) : 0m;
+                                int stockQuantity = reader["Available"] != DBNull.Value ? Convert.ToInt32(reader["Available"]) : 0;
 
                                 Console.WriteLine($"Title: {title}, Author: {authorName}, Price: ${price}, Cover Image Path: {coverImagePath}");
-                                currentBook = new Book(title, authorName, price, coverImagePath, idd);
-
+                                currentBook = new Book(title, authorName, price, coverImagePath, idd, isbn, publisherID, genreID, stockQuantity);
+                                currentBook.PublisherID = publisherID;
+                                currentBook.GenreID = genreID;
                             }
                         }
                     }

@@ -15,7 +15,7 @@
                         <h5>@book.Title</h5>
                         <img src="@book.ImageURL" alt="Cover image of @book.Title" class="bestseller-image"/>
                         <p>by @book.Author</p>
-                        <p>Price: $@book.Price.ToString()</p>
+                        <p>Price: $@book.Price.ToString("N2")</p>
                     </div>
                 </a>
             }
@@ -23,7 +23,6 @@
         </div>
     </section>
 
-    <!-- Combined Section for Genres and All Books -->
     <div class="flex-container">
         <section class="genre-section">
             <h2>Genres</h2>
@@ -46,12 +45,14 @@
             <div id="all-books">
                 @foreach (var book in Model.Books)
                 {
-                    <div class="book">
-                        <h5>@book.Title</h5>
-                        <img src="@book.ImageURL" alt="Cover image of @book.Title" />
-                        <p>by @book.Author</p>
-                        <p>Price: $@book.Price.ToString()</p>
-                    </div>
+                    <a href="/BookDetails?id=@book.BookID" class="book">
+                        <div>
+                            <h5>@book.Title</h5>
+                            <img src="@book.ImageURL" alt="Cover image of @book.Title" />
+                            <p>by @book.Author</p>
+                            <p>Price: $@book.Price.ToString("N2")</p>
+                        </div>
+                    </a>
                 }
             </div>
         </section>

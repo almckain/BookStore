@@ -6,6 +6,8 @@ builder.Services.AddRazorPages();
 builder.Services.AddSingleton<TestWebsite.IBookService, TestWebsite.BookService>();
 builder.Services.AddSingleton<TestWebsite.IOrderService, TestWebsite.OrderServices>();
 builder.Services.AddSingleton<TestWebsite.ICustomerService, TestWebsite.CustomerService>();
+builder.Services.AddSingleton<TestWebsite.IGenreService, TestWebsite.GenreService>();
+builder.Services.AddSingleton<TestWebsite.IPublisherService, TestWebsite.PublisherService>();
 
 
 builder.Services.AddSession(options =>

@@ -35,33 +35,34 @@ body {
 
 #bestsellers {
     display: flex;
-    justify-content: center; /* This will center the books */
+    justify-content: center; 
     gap: 30px;
 }
 
 .book {
     border: 1px solid #ccc;
     padding: 10px;
-    width: 250px; /* Uniform width */
-    height: auto; /* Height adjusts based on content */
+    width: 250px;
+    height: auto;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 10px; /* Adds space between book entries */
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
 }
 
 .book img {
-    width: auto; /* Width adjusts to maintain aspect ratio */
-    height: 200px; /* Fixed height for the image */
-    object-fit: contain; /* Ensures the entire image fits, no cropping */
+    width: auto;
+    height: 200px; 
+    object-fit: contain; 
 }
 
 .book h5 {
     margin: 0.5em 0;
-    white-space: nowrap; /* Prevents text from wrapping */
-    overflow: hidden; /* Hide text that doesn't fit */
-    text-overflow: ellipsis; /* Add ellipsis to overflowed text */
-    width: 100%; /* Ensures the title width doesn't exceed the container */
+    white-space: nowrap;
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    width: 100%; 
 }
 
 .section-container{
@@ -75,28 +76,28 @@ body {
 
 .genre-section {
     flex: 1;
-    margin-right: 20px; /* Adjust space between genres and books */
-    text-align: left; /* Ensure text is left-aligned */
+    margin-right: 20px; 
+    text-align: left; 
 }
 
 .genre-section h2 {
-    text-align: left; /* Left-align the section title */
+    text-align: left;
 }
 
 .genre-section #genres {
-    text-align: left; /* Left-align the container for checkboxes */
+    text-align: left;
 }
 
 .genre-section #genres div {
-    text-align: left; /* Left-align individual checkbox divs */
+    text-align: left; 
 }
 
 
 .books-section {
     flex: 3;
-    border: 1px solid #ccc; /* Adjust the color (#ccc) and width (1px) as needed */
-    padding: 10px; /* Adds some space inside the border */
-    margin-right: 20px; /* Adjust or remove based on layout needs */
+    border: 1px solid #ccc; 
+    padding: 10px; 
+    margin-right: 20px; 
 }
 
 #bestsellers a {
@@ -107,6 +108,16 @@ body {
     color: inherit;
 }
 
+a.book:hover, a.book:focus {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+}
+
+a.book {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
 
 #bestsellers a.book {
     margin: 0;
@@ -115,13 +126,15 @@ body {
     text-decoration: none;
     color: inherit;
     box-sizing: border-box;
-    transition: transform 0.3s ease; /* Smooth transition for scaling */
+    transition: transform 0.3s ease; 
 }
 
 #bestsellers a.book:hover, #bestsellers a.book:focus {
-    transform: scale(1.05); /* Slightly enlarges the book div */
-    text-decoration: none; /* Ensures no underline appears */
+    transform: scale(1.05); 
+    text-decoration: none; 
 }
 
-
+.navbar .fa-shopping-cart {
+    margin-right: 5px;
+}
 

@@ -12,6 +12,11 @@ namespace TestWebsite
 			GenreID = id;
 			GenreName = name;
 		}
+
+		public Genre()
+		{
+
+		}
 	}
 }
 
