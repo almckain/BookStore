@@ -2,7 +2,7 @@
 @model TestWebsite.Pages.CartModel
 
 @{
-    bool isLoggedIn = HttpContext.Session.GetInt32("CustomerID") != null; // Check if the user is logged in
+    bool isLoggedIn = HttpContext.Session.GetInt32("CustomerID") != null;
 }
 
 <h2>Your Cart</h2>
