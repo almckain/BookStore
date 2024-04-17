@@ -2,15 +2,10 @@
 @model TestWebsite.Pages.LoginModel
 
 <h2>Login</h2>
-
 <form method="post">
     <div class="form-group">
-        <label for="Name">Name</label>
-        <input type="text" class="form-control" id="Name" asp-for="Name" required>
-    </div>
-    <div class="form-group">
-        <label for="Email">Email</label>
-        <input type="email" class="form-control" id="Email" asp-for="Email" required>
+        <label for="email">Email</label>
+        <input class="form-control" id="email" name="email" required>
     </div>
     <button type="submit" class="btn btn-primary">Login</button>
 </form>

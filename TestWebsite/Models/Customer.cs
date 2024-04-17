@@ -19,6 +19,9 @@ namespace TestWebsite
 			Name = name;
 			Email = email;
 		}
+
+		public Customer() { }
+
 	}
 }
 

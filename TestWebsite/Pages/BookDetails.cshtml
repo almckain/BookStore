@@ -1,20 +1,27 @@
 ﻿@page "/BookDetails"
 @model TestWebsite.Pages.BookDetailsModel
 @{
+    Layout = "_Layout"; // Ensure it uses the common layout if needed
 }
 
-<div class="book-details">
-    <h2>@Model.Book.Title</h2>
-    <img src="@Model.Book.ImageURL" alt="Cover image of @Model.Book.Title" class="bestseller-image" />
-    <p>Author: @Model.Book.Author</p>
-    <p>Price: $@Model.Book.Price.ToString("N2")</p>
-    <p>ISBN: @Model.Book.ISBN</p>
-    <p>Publisher: @Model.Book.Publisher?.Name</p>
-    <p>Genre: @Model.Book.Genre?.GenreName</p>
-    <p>Stock Available: @Model.Book.StockQuantity</p>
+<div class="book-details container">
+    <div class="row">
+        <div class="col-md-4">
+            <img src="@Model.Book.ImageURL" alt="Cover image of @Model.Book.Title" class="img-fluid" />
+        </div>
+        <div class="col-md-8">
+            <h2>@Model.Book.Title</h2>
+            <p class="text-muted">by @Model.Book.Author</p>
+            <p class="font-weight-bold">Price: $@Model.Book.Price.ToString("N2")</p>
+            <p>ISBN: @Model.Book.ISBN</p>
+            <p>Publisher: @Model.Book.Publisher?.Name</p>
+            <p>Genre: @Model.Book.Genre?.GenreName</p>
+            <p>Stock Available: @Model.Book.StockQuantity</p>
 
-    <form method="post">
-        <input type="hidden" name="bookId" value="@Model.Book.BookID" />
-        <button type="submit" class="btn btn-primary">Add to Cart</button>
-    </form>
+            <form method="post" class="mt-4">
+                <input type="hidden" name="bookId" value="@Model.Book.BookID" />
+                <button type="submit" class="btn btn-success">Add to Cart</button>
+            </form>
+        </div>
+    </div>
 </div>
