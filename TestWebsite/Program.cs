@@ -8,6 +8,7 @@ builder.Services.AddSingleton<TestWebsite.IOrderService, TestWebsite.OrderServic
 builder.Services.AddSingleton<TestWebsite.ICustomerService, TestWebsite.CustomerService>();
 builder.Services.AddSingleton<TestWebsite.IGenreService, TestWebsite.GenreService>();
 builder.Services.AddSingleton<TestWebsite.IPublisherService, TestWebsite.PublisherService>();
+builder.Services.AddSingleton<TestWebsite.IAdminService, TestWebsite.AdminService>();
 
 
 builder.Services.AddSession(options =>

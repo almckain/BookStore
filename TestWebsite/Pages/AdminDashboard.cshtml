@@ -6,3 +6,32 @@
 <h2>Admin Dashboard</h2>
 <p>Welcome, @Model.CustomerName!</p>
 <p>Email: @Model.CustomerEmail</p>
+
+<section>
+    <h2>Low Stock Books</h2>
+
+    <form method="post">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Current Stock</th>
+                    <th>Add Stock</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var book in Model.LowStockBooks)
+                {
+                    <tr>
+                        <td>@book.Title</td>
+                        <td>@book.StockQuantity</td>
+                        <td>
+                            <input asp-for="StockUpdates[@book.BookID]" value="0" type="number" min="0" class="form-control" />
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <button type="submit" asp-page-handler="UpdateStock" class="btn btn-primary">Update Stock</button>
+    </form>
+</section>

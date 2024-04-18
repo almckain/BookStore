@@ -10,10 +10,12 @@ namespace TestWebsite.Pages
 	public class LoginModel : PageModel
     {
         private readonly ICustomerService _customerService;
+        private readonly IAdminService _adminService;
 
-        public LoginModel(ICustomerService customerService)
+        public LoginModel(ICustomerService customerService, IAdminService adminService)
         {
             _customerService = customerService;
+            _adminService = adminService;
         }
 
         [BindProperty]
@@ -30,7 +32,15 @@ namespace TestWebsite.Pages
             {
                 HttpContext.Session.SetString("CustomerName", "Admin");
                 HttpContext.Session.SetString("CustomerEmail", "customerservice@bookstore.com");
-                HttpContext.Session.SetInt32("CustomerID", 0); 
+                HttpContext.Session.SetInt32("CustomerID", 0);
+
+                var stockCart = HttpContext.Session.GetObjectFromJson<StockCart>("StockCart") ?? new StockCart();
+                List<Book> currentLowStock = _adminService.GetLowStockBooks();
+                foreach(Book book in currentLowStock)
+                {
+                    stockCart.AddItem(book.BookID);
+                }
+                HttpContext.Session.SetObjectAsJson("StockCart", stockCart);
                 return RedirectToPage("/AdminDashboard"); 
             }
 

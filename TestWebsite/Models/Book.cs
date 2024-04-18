@@ -11,10 +11,10 @@ namespace TestWebsite
 		public int PublisherID { get; set; }
 		public int GenreID { get; set; }
 
-		public string? ISBN { get; set; }
-		public Publisher? Publisher { get; set; }
-		public Genre? Genre { get; set; }
-		public int? StockQuantity { get; set; }
+		public string ISBN { get; set; }
+		public Publisher Publisher { get; set; }
+		public Genre Genre { get; set; }
+		public int StockQuantity { get; set; }
 
 		public Book(string title, string author, decimal price, string imageURL, int id)
 		{
