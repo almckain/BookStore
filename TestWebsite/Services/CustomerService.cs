@@ -6,6 +6,51 @@ namespace TestWebsite
 {
 	public class CustomerService : DatabaseService, ICustomerService
 	{
+
+        public List<Order> ReturnOrdersByCustomers(int customerID)
+        {
+            List<Order> orders = new List<Order>();
+            try
+            {
+                using (var connection = GetConnection())
+                {
+                    connection.Open();
+
+                    String procedureToCall = "ReturnCustOrders";
+
+                    using (SqlCommand command = new SqlCommand(procedureToCall, connection)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    })
+                    {
+                        command.Parameters.Add(new SqlParameter("@CustomerID", customerID));
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Order order = new Order
+                                {
+                                    OrderNumber = reader["OrderID"] != DBNull.Value ? Convert.ToInt32(reader["OrderID"]) : 0,
+                                    Total = reader["OrderTotal"] != DBNull.Value ? Convert.ToInt32(reader["OrderTotal"]) : 0,
+                                    OrderDate = Convert.ToDateTime(reader["OrderDate"])
+                                  
+                                };
+                                orders.Add(order);
+                            }
+                        }
+                    }
+
+                }
+
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine("\n\nError Connecting to database: " + e.ToString() + "\n\n");
+                System.Diagnostics.Debug.WriteLine(e.ToString());
+            }
+            return orders;
+
+        }
         public Customer GetCustomerByEmail(string email)
         {
             Customer currentCustomer = new Customer();

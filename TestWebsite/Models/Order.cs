@@ -9,7 +9,7 @@ namespace TestWebsite
         public int CustomerID { get; set; }
         public DateTime OrderDate { get; set; }
         public decimal Total { get; set; }
-        public List<OrderLine> OrderLines { get; set; } = new List<OrderLine>();
+        //public List<OrderLine> OrderLines { get; set; } = new List<OrderLine>();
     }
 }
 

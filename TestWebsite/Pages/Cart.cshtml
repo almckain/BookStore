@@ -46,8 +46,9 @@
             <td colspan="5" class="text-right">
                 @if (isLoggedIn)
                 {
-                    <button class="btn btn-primary" onclick="location.href='@Url.Page("/Checkout")'">Proceed to Checkout</button>
-                }
+                    <form method="post">
+                        <button type="submit" name="action" value="checkout" class="btn btn-primary">Proceed to Checkout</button>
+                    </form> }
                 else
                 {
                     <p>Please <a href="@Url.Page("/Login")">log in</a> to proceed to checkout.</p>

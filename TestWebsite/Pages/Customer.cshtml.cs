@@ -26,12 +26,13 @@ namespace TestWebsite.Pages
         {
             var name = HttpContext.Session.GetString("CustomerName");
             var email = HttpContext.Session.GetString("CustomerEmail");
-            var customerID = HttpContext.Session.GetInt32("CustomerID");
+            int customerID = Convert.ToInt32(HttpContext.Session.GetInt32("CustomerID"));
+            Orders = _customerService.ReturnOrdersByCustomers(customerID);
 
-            if(!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(email) && customerID.HasValue)
+            if(!string.IsNullOrEmpty(name) && !string.IsNullOrEmpty(email))
             {
                 Customer = new Customer((int)customerID, name, email);
-                Orders = _orderService.GetOrdersForCustomer(customerID.Value);
+                Orders = _customerService.ReturnOrdersByCustomers(customerID);
 
             }
             else

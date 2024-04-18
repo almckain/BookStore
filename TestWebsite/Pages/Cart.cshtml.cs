@@ -11,11 +11,14 @@ namespace TestWebsite.Pages
 	public class CartModel : PageModel
     {
         private readonly IBookService _bookService;
+        private readonly IOrderService _orderService;
+
         public CheckoutCart Cart { get; set; }
 
-        public CartModel(IBookService bookService)
+        public CartModel(IBookService bookService, IOrderService orderService)
         {
             _bookService = bookService;
+            _orderService = orderService;
         }
 
         public void OnGet()
@@ -38,6 +41,8 @@ namespace TestWebsite.Pages
                 case "remove":
                     Cart.RemoveItemCompletely(bookId);
                     break;
+                case "checkout":
+                    return ProcessCheckout();
             }
 
             HttpContext.Session.SetObjectAsJson("Cart", Cart);
@@ -58,6 +63,28 @@ namespace TestWebsite.Pages
         public Book GetBookDetails(int bookId)
         {
             return _bookService.GetBookDetails(bookId);
+        }
+
+        private IActionResult ProcessCheckout()
+        {
+            var customerId = HttpContext.Session.GetInt32("CustomerID");
+            if (!customerId.HasValue)
+            {
+                ModelState.AddModelError("", "You must be logged in to complete the checkout.");
+                return Page();
+            }
+
+            bool isSuccess = _orderService.PlaceOrder(customerId.Value, Cart.Items);
+            if (isSuccess)
+            {
+                HttpContext.Session.Remove("Cart");  // Clear the cart after successful checkout
+                return RedirectToPage("/OrderConfirmation");  // Redirect to a confirmation page
+            }
+            else
+            {
+                ModelState.AddModelError("", "Failed to process the checkout.");
+                return Page();
+            }
         }
     }
 }
