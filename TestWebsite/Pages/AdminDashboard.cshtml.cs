@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -11,20 +12,19 @@ namespace TestWebsite.Pages
 	public class AdminDashboardModel : PageModel
     {
         private readonly IAdminService _adminService;
-        private readonly IBookService _bookService;
-
+        private readonly IPublisherService _publisherService;
         public string CustomerName { get; private set; }
         public string CustomerEmail { get; private set; }
-
+        public List<int> publisherIds = new List<int>();
         public List<Book> LowStockBooks { get; set; }
 
         [BindProperty]
         public Dictionary<int, int> StockUpdates { get; set; } = new Dictionary<int, int>();
 
-        public AdminDashboardModel(IAdminService adminService, IBookService bookService)
+        public AdminDashboardModel(IAdminService adminService, IPublisherService publisherService)
         {
             _adminService = adminService;
-            _bookService = bookService;
+            _publisherService = publisherService;
         }
 
         public void OnGet()
@@ -33,6 +33,8 @@ namespace TestWebsite.Pages
             LowStockBooks = _adminService.GetLowStockBooks();
             foreach(var book in LowStockBooks)
             {
+
+                publisherIds.Add(book.PublisherID);
                 StockUpdates.Add(book.BookID, 0);
             }
         }
@@ -45,21 +47,29 @@ namespace TestWebsite.Pages
 
         public IActionResult OnPostUpdateStock()
         {
+            Dictionary<int, int[]> updatedStocks = new Dictionary<int, int[]>();
+
             foreach (var update in StockUpdates)
             {
-                var bookId = update.Key;
-                var newQuantity = update.Value;
+                int bookId = update.Key;
+                int newQuantity = update.Value;
 
                 if (newQuantity < 0)
                 {
                     ModelState.AddModelError("", "Stock quantity cannot be negative.");
                     return Page();
                 }
-
-                //_adminService.UpdateStock(bookId, newQuantity);
+                else
+                {
+                    int[] quantityArray = new int[] { bookId, newQuantity };
+                    updatedStocks.Add(bookId, quantityArray);
+                }
             }
+
+            _publisherService.PlacePublisherOrder(updatedStocks);
 
             return RedirectToPage();
         }
+
     }
 }

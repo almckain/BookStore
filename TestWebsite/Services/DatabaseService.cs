@@ -5,7 +5,7 @@ namespace TestWebsite
 {
 	public abstract class DatabaseService
 	{
-        protected SqlConnectionStringBuilder builder;
+        private SqlConnectionStringBuilder builder;
 
         public DatabaseService()
         {

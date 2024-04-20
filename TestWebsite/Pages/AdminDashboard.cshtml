@@ -26,7 +26,7 @@
                         <td>@book.Title</td>
                         <td>@book.StockQuantity</td>
                         <td>
-                            <input asp-for="StockUpdates[@book.BookID]" value="0" type="number" min="0" class="form-control" />
+                            <input type="number" name="StockUpdates[@book.BookID]" min="0" class="form-control" />
                         </td>
                     </tr>
                 }

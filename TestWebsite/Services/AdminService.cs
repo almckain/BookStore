@@ -6,6 +6,7 @@ namespace TestWebsite
 {
 	public class AdminService : DatabaseService ,IAdminService
 	{
+       
 		public AdminService()
 		{
 		}
@@ -35,6 +36,7 @@ namespace TestWebsite
                                 int id = reader["BookID"] != DBNull.Value ? Convert.ToInt32(reader["BookID"]) : 0;
                                 int quantity = reader["Available"] != DBNull.Value ? Convert.ToInt32(reader["Available"]) : 0;
                                 string title = reader["Title"]?.ToString() ?? "Default Title";
+                                tempBook.PublisherID = reader["Publisher_ID"] != DBNull.Value ? Convert.ToInt32(reader["Publisher_ID"]) : 0;
                                 tempBook.BookID = id;
                                 tempBook.StockQuantity = quantity;
                                 tempBook.Title = title;
