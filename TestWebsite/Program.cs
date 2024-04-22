@@ -37,6 +37,4 @@ app.UseRouting();
 app.UseAuthorization();
 
 app.MapRazorPages();
-TestWebsite.ServerConnection sc = new TestWebsite.ServerConnection();
-sc.GetTopSellingBooks();
 app.Run();

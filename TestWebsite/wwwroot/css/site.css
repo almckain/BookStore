@@ -196,3 +196,180 @@ a.book {
     padding-right: 15px;
     padding-left: 15px;
 }
+
+
+.confirmation-container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #ccc;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.confirmation-card {
+    text-align: center;
+    padding: 20px;
+}
+
+.confirmation-title {
+    font-size: 28px;
+    color: #333;
+}
+
+.confirmation-message, .confirmation-detail {
+    font-size: 16px;
+    color: #666;
+}
+
+.confirmation-divider {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.confirmation-help {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.confirmation-contact-link {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.confirmation-actions .btn {
+    font-size: 16px;
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+}
+
+    .confirmation-actions .btn:hover {
+        background-color: #0056b3;
+        border-color: #004085;
+    }
+.customer-profile {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.profile-header h2 {
+    color: #333;
+    font-size: 24px;
+    margin-bottom: 5px;
+}
+
+.profile-header .email {
+    color: #555;
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.order-history-title {
+    margin-top: 30px;
+    text-align: left;
+    color: #444;
+    font-size: 20px;
+}
+
+.order-history {
+    width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+
+    .order-history th, .order-history td {
+        padding: 8px;
+        border: 1px solid #ddd;
+        text-align: left;
+    }
+
+    .order-history th {
+        background-color: #f0f0f0;
+    }
+
+.logout-form {
+    margin-top: 20px;
+    text-align: center;
+}
+
+    .logout-form .btn {
+        padding: 10px 20px;
+        color: #fff;
+        background-color: #6c757d;
+        border-color: #6c757d;
+    }
+
+        .logout-form .btn:hover {
+            background-color: #5a6268;
+            border-color: #545b62;
+        }
+.login-container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.login-title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.login-form {
+    width: 100%;
+}
+
+    .login-form .form-group {
+        margin-bottom: 15px;
+    }
+
+    .login-form .form-control {
+        height: 40px;
+        padding: 5px 10px;
+        font-size: 16px;
+        border-radius: 4px;
+        border: 1px solid #ced4da;
+    }
+
+    .login-form .btn {
+        width: 100%;
+        padding: 10px;
+        font-size: 18px;
+        border-radius: 4px;
+    }
+
+    .login-form .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+
+        .login-form .btn-primary:hover {
+            background-color: #0069d9;
+            border-color: #0062cc;
+        }
+.member {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 4px;
+}
+
+.member-name {
+    font-size: 20px;
+    color: #333;
+}
+
+.member-info {
+    font-size: 16px;
+    color: #555;
+    line-height: 1.6;
+}

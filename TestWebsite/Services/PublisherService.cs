@@ -53,38 +53,42 @@ namespace TestWebsite
                     {
                         //index 0 is pub id
                         //index 1 is quantity
-                        procedureToCall = "PlaceOrderPublishers";
-                        using (SqlCommand command = new SqlCommand(procedureToCall, connection))
-                        {
-                            command.CommandType = CommandType.StoredProcedure;
-                            command.Parameters.AddWithValue("@PurchaseOrderID", newOrderId);
-                            command.Parameters.AddWithValue("@PublisherID", publisher.Value[0]);
-                            command.ExecuteNonQuery();
-                        }
-
                         int bookId = publisher.Key;
                         int quantity = publisher.Value[1];
-                        procedureToCall = "CreateProcedureOrderLines";
-                        using (SqlCommand command = new SqlCommand(procedureToCall, connection))
+                        if (quantity > 0)
                         {
-                            command.CommandType = CommandType.StoredProcedure;
-                            command.Parameters.AddWithValue("@PurchaseOrderLineID", newOrderLineId);
-                            command.Parameters.AddWithValue("@PurchaseOrderID", newOrderId);
-                            command.Parameters.AddWithValue("@Quantity", quantity);
-                            command.Parameters.AddWithValue("@BookID", bookId);
+                            procedureToCall = "PlaceOrderPublishers";
+                            using (SqlCommand command = new SqlCommand(procedureToCall, connection))
+                            {
+                                command.CommandType = CommandType.StoredProcedure;
+                                command.Parameters.AddWithValue("@PurchaseOrderID", newOrderId);
+                                command.Parameters.AddWithValue("@PublisherID", publisher.Value[0]);
+                                command.ExecuteNonQuery();
+                            }
 
-                            command.ExecuteNonQuery();
-                        }
-                        procedureToCall = "IncrementBookInventory";
-                        using (SqlCommand command = new SqlCommand(procedureToCall, connection))
-                        {
-                            command.CommandType = CommandType.StoredProcedure;
-                            command.Parameters.AddWithValue("@BookID", bookId);
-                            command.Parameters.AddWithValue("@Quantity", quantity);
 
-                            command.ExecuteNonQuery();
+                            procedureToCall = "CreateProcedureOrderLines";
+                            using (SqlCommand command = new SqlCommand(procedureToCall, connection))
+                            {
+                                command.CommandType = CommandType.StoredProcedure;
+                                command.Parameters.AddWithValue("@PurchaseOrderLineID", newOrderLineId);
+                                command.Parameters.AddWithValue("@PurchaseOrderID", newOrderId);
+                                command.Parameters.AddWithValue("@Quantity", quantity);
+                                command.Parameters.AddWithValue("@BookID", bookId);
+
+                                command.ExecuteNonQuery();
+                            }
+                            procedureToCall = "IncrementBookInventory";
+                            using (SqlCommand command = new SqlCommand(procedureToCall, connection))
+                            {
+                                command.CommandType = CommandType.StoredProcedure;
+                                command.Parameters.AddWithValue("@BookID", bookId);
+                                command.Parameters.AddWithValue("@Quantity", quantity);
+
+                                command.ExecuteNonQuery();
+                            }
+                            newOrderLineId++;
                         }
-                        newOrderLineId++;   
                     }
                     return true;
                 }

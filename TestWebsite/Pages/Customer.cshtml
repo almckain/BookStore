@@ -5,26 +5,32 @@
     ViewData["Title"] = "Customer Profile";
 }
 
-<div class="text-center">
-    <h2>Welcome, @Model.Customer.Name!</h2>
-    <p>Email: @Model.Customer.Email</p>
-    <h3>Past Orders</h3>
-    <table>
-        <tr>
-            <th>Order Number</th>
-            <th>Total</th>
-            <th>Order Date</th>
-        </tr>
-        @foreach (var order in Model.Orders)
-        {
+<div class="customer-profile">
+    <div class="profile-header text-center">
+        <h2>Welcome, @Model.Customer.Name!</h2>
+        <p class="email">Email: @Model.Customer.Email</p>
+    </div>
+    <h3 class="order-history-title">Past Orders</h3>
+    <table class="table table-striped order-history">
+        <thead>
             <tr>
-                <td>@order.OrderNumber</td>
-                <td>$@order.Total.ToString()</td>
-                <td>@order.OrderDate.ToShortDateString()</td>
+                <th>Order Number</th>
+                <th>Total</th>
+                <th>Order Date</th>
             </tr>
-        }
+        </thead>
+        <tbody>
+            @foreach (var order in Model.Orders)
+            {
+                <tr>
+                    <td>@order.OrderNumber</td>
+                    <td>$@order.Total.ToString("0.00")</td>
+                    <td>@order.OrderDate.ToShortDateString()</td>
+                </tr>
+            }
+        </tbody>
     </table>
-    <form method="post" asp-page-handler="Logout">
+    <form method="post" asp-page-handler="Logout" class="logout-form">
         <button type="submit" class="btn btn-secondary">Logout</button>
     </form>
 </div>

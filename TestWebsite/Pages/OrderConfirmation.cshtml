@@ -2,4 +2,19 @@
 @model TestWebsite.Pages.OrderConfirmationModel
 @{
 }
-<a>It works</a>
+
+<div class="confirmation-container">
+    <div class="confirmation-card">
+        <h1 class="confirmation-title">Order Confirmed!</h1>
+        <p class="confirmation-message">Thank you for your purchase.</p>
+        <p class="confirmation-detail">Your order has been successfully processed. You will receive a confirmation email shortly with the details of your order.</p>
+        <hr class="confirmation-divider">
+        <p class="confirmation-help">
+            Having trouble? <a href="mailto:support@testwebsite.com" class="confirmation-contact-link">Contact us</a>
+        </p>
+        <div class="confirmation-actions">
+            <a class="btn btn-primary" href="/" role="button">Continue to homepage</a>
+        </div>
+    </div>
+</div>
+

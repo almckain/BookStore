@@ -35,3 +35,52 @@
         <button type="submit" asp-page-handler="UpdateStock" class="btn btn-primary">Update Stock</button>
     </form>
 </section>
+
+<section>
+    <h2>Recent Stock Refills</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Book Title</th>
+                <th>Publisher Name</th>
+                <th>Quantity Ordered</th>
+                <th>Order Date</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var refill in Model.RecentStockRefills)
+            {
+                <tr>
+                    <td>@refill.BookTitle</td>
+                    <td>@refill.PublisherName</td>
+                    <td>@refill.QuantityOrdered</td>
+                    <td>@refill.OrderDate.ToString("MM/dd/yyyy")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</section>
+<section>
+    <h2>Top 10 Customers</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Customer Name</th>
+                <th>Email</th>
+                <th>Order Count</th>
+                <th>Total Money Spent</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Model.TopCustomers)
+            {
+                <tr>
+                    <td>@customer.Name</td>
+                    <td>@customer.Email</td>
+                    <td>@customer.OrderCount</td>
+                    <td>$@customer.TotalMoneySpent</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</section>

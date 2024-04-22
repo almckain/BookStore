@@ -6,6 +6,9 @@ namespace TestWebsite
 		public int CustomerID { get; set; }
 		public string Name { get; set; }
 		public string Email { get; set; }
+		public int OrderCount { get; set; }
+		public decimal TotalMoneySpent { get; set; }
+
 
 		public Customer(int custumerId, string name, string email)
 		{

@@ -1,11 +1,13 @@
 ﻿@page
 @model TestWebsite.Pages.LoginModel
 
-<h2>Login</h2>
-<form method="post">
-    <div class="form-group">
-        <label for="email">Email</label>
-        <input class="form-control" id="email" name="email" required>
-    </div>
-    <button type="submit" class="btn btn-primary">Login</button>
-</form>
+<div class="login-container">
+    <h2 class="login-title">Login</h2>
+    <form method="post" class="login-form">
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input class="form-control" name="email" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+</div>

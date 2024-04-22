@@ -39,10 +39,7 @@ namespace TestWebsite.Pages
             {
                 RedirectToPage("/Login");
             }
-            foreach (var order in Orders)
-            {
-                //order.OrderLines = _bookService.GetBooksByOrderNumber(order.OrderNumber);
-            }
+
         }
 
         public IActionResult OnPostLogout()
