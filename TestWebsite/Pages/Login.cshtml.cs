@@ -33,6 +33,7 @@ namespace TestWebsite.Pages
                 HttpContext.Session.SetString("CustomerName", "Admin");
                 HttpContext.Session.SetString("CustomerEmail", "customerservice@bookstore.com");
                 HttpContext.Session.SetInt32("CustomerID", 0);
+                HttpContext.Session.SetString("IsAdmin", "True");
 
                 var stockCart = HttpContext.Session.GetObjectFromJson<StockCart>("StockCart") ?? new StockCart();
                 List<Book> currentLowStock = _adminService.GetLowStockBooks();

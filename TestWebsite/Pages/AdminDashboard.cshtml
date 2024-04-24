@@ -3,15 +3,20 @@
 @{
 }
 
-<h2>Admin Dashboard</h2>
-<p>Welcome, @Model.CustomerName!</p>
-<p>Email: @Model.CustomerEmail</p>
+<div class="dashboard-section">
+    <div class="dashboard-header">
+        <h2>Admin Dashboard</h2>
+        <p>Welcome, @Model.CustomerName!</p>
+        <p>Email: @Model.CustomerEmail</p>
+    </div>
+</div>
 
-<section>
+<section class="dashboard-section">
+
     <h2>Low Stock Books</h2>
 
     <form method="post">
-        <table class="table">
+        <table class="dashboard-table">
             <thead>
                 <tr>
                     <th>Title</th>
@@ -36,9 +41,9 @@
     </form>
 </section>
 
-<section>
+<section class="dashboard-section">
     <h2>Recent Stock Refills</h2>
-    <table class="table">
+    <table class="dashboard-table">
         <thead>
             <tr>
                 <th>Book Title</th>
@@ -60,9 +65,10 @@
         </tbody>
     </table>
 </section>
-<section>
+
+<section class="dashboard-section">
     <h2>Top 10 Customers</h2>
-    <table class="table">
+    <table class="dashboard-table">
         <thead>
             <tr>
                 <th>Customer Name</th>

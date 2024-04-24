@@ -11,6 +11,12 @@ namespace TestWebsite
 		public Publisher()
 		{
 		}
+
+		public Publisher(int id, string name)
+		{
+			PublisherID = id;
+			Name = name;
+		}
 	}
 }
 

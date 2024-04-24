@@ -5,6 +5,7 @@ namespace TestWebsite
 	{
 		Customer GetCustomerByEmail(string email);
 		List<Order> ReturnOrdersByCustomers(int customerID);
+		bool CreateNewCustomer(string name, string email);
 	}
 }
 

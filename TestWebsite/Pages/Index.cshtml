@@ -24,21 +24,37 @@
     </section>
 
     <div class="flex-container">
-        <section class="genre-section">
-            <h2>Genres</h2>
+        <div class="genre-section">
             <form method="post">
-                <div id="genres">
-                    @foreach (var genre in Model.Genres)
-                    {
-                        <div>
-                            <input type="checkbox" id="genre-@genre.GenreID" name="selectedGenres" value="@genre.GenreID" />
-                            <label for="genre-@genre.GenreID">@genre.GenreName</label>
-                        </div>
-                    }
-                </div>
+                <section>
+                    <h2>Genres</h2>
+                    <div id="genres">
+                        @foreach (var genre in Model.Genres)
+                        {
+                            <div>
+                                <input type="checkbox" id="genre-@genre.GenreID" name="selectedGenres" value="@genre.GenreID" />
+                                <label for="genre-@genre.GenreID">@genre.GenreName</label>
+                            </div>
+                        }
+                    </div>
+                </section>
+                <section class="publisher-section">
+                    <h2>Publishers</h2>
+                    <div id="publishers">
+                        <select name="selectedPublisher" class="form-control">
+                            <option value="">Select a Publisher</option>
+                            @foreach (var publisher in Model.Publishers)
+                            {
+                                <option value="@publisher.PublisherID">@publisher.Name</option>
+                            }
+                        </select>
+
+                    </div>
+                </section>
                 <button type="submit" class="filter-books-btn">Filter Books</button>
+
             </form>
-        </section>
+        </div>
 
         <section class="books-section">
             <h2 class="section-titles">All Books</h2>

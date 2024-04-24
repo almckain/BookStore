@@ -241,7 +241,7 @@ namespace TestWebsite
                             {
                                 int idd = reader["BookID"] != DBNull.Value ? Convert.ToInt32(reader["BookID"]) : 0;
                                 int publisherID = reader["PublisherID"] != DBNull.Value ? Convert.ToInt32(reader["PublisherID"]) : 0;
-                                int genreID = reader["GenreID"] != DBNull.Value ? Convert.ToInt32(reader["PublisherID"]) : 0;
+                                int genreID = reader["GenreID"] != DBNull.Value ? Convert.ToInt32(reader["GenreID"]) : 0;
                                 string title = reader["Title"]?.ToString() ?? "Default Title";
                                 string authorName = reader["Author"]?.ToString() ?? "Unknown Author";
                                 string isbn = reader["ISBN"]?.ToString() ?? "Unknown ISBN";
@@ -270,7 +270,56 @@ namespace TestWebsite
             return currentBook;
 
         }
-        
+
+        public List<Book> GetBooksByPublishers(int id)
+        {
+
+            List<Book> books = new List<Book>();
+
+            try
+            {
+                using (var connection = GetConnection())
+                {
+                    connection.Open();
+
+
+                    string procedureToCall = "GetBooksByPublisherID";
+
+                    using (SqlCommand command = new SqlCommand(procedureToCall, connection)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    })
+                    {
+                        command.Parameters.Add(new SqlParameter("@PublisherID", id));
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                int idd = reader["BookID"] != DBNull.Value ? Convert.ToInt32(reader["BookID"]) : 0;
+
+                                string title = reader["Title"]?.ToString() ?? "Default Title";
+                                string authorName = reader["AuthorName"]?.ToString() ?? "Unknown Author";
+                                string coverImagePath = reader["CoverImagePath"]?.ToString() ?? "No image available";
+                                decimal price = reader["Price"] != DBNull.Value ? Convert.ToDecimal(reader["Price"]) : 0m;
+
+                                Console.WriteLine($"Title: {title}, Author: {authorName}, Price: ${price}, Cover Image Path: {coverImagePath}");
+                                books.Add(new Book(title, authorName, price, coverImagePath, idd));
+                            }
+                        }
+                    }
+                    
+                }
+
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine("\n\nError Connecting to database: " + e.ToString() + "\n\n");
+                System.Diagnostics.Debug.WriteLine(e.ToString());
+            }
+
+            return books;
+        }
+
         public BookService()
 		{
 		}

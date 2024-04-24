@@ -94,6 +94,35 @@ namespace TestWebsite
 
             return currentCustomer;
         }
+
+        public bool CreateNewCustomer(string name, string email)
+        {
+            try
+            {
+                using (var connection = GetConnection())
+                {
+                    connection.Open();
+
+                    String procedureToCall = "CreateNewAccount";
+
+                    using (SqlCommand command = new SqlCommand(procedureToCall, connection))
+                    {
+                        command.CommandType = CommandType.StoredProcedure;
+                        command.Parameters.AddWithValue("@Email", email);
+                        command.Parameters.AddWithValue("@Name", name);
+                        command.ExecuteNonQuery();
+                    }
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("\n\nError Connecting to database: " + e.ToString() + "\n\n");
+                System.Diagnostics.Debug.WriteLine(e.ToString());
+                return false;
+            }
+
+            return true;
+        }
     }
 }
 

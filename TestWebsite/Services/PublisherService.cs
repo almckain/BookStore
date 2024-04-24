@@ -151,6 +151,45 @@ namespace TestWebsite
 
             return currentPublisher;
         }
-	}
+
+        public List<Publisher> GetAllPublishers()
+        {
+            List<Publisher> publishers = new List<Publisher>();
+            try
+            {
+                using (var connection = GetConnection())
+                {
+                    connection.Open();
+
+                    //Stored Procedure
+                    String procedureToCall = "GetAllPublishers";
+
+                    using (SqlCommand command = new SqlCommand(procedureToCall, connection)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    })
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                string publisherName = reader["Name"]?.ToString() ?? "Publisher Name";
+                                int publisherID = reader["Publisher_ID"] != DBNull.Value ? Convert.ToInt32(reader["Publisher_ID"]) : 0;
+
+                                publishers.Add(new Publisher(publisherID, publisherName));
+                            }
+                        }
+                    }
+                }
+
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine("\n\nError Connecting to database: " + e.ToString() + "\n\n");
+                System.Diagnostics.Debug.WriteLine(e.ToString());
+            }
+            return publishers;
+        }
+    }
 }
 

@@ -5,8 +5,7 @@ namespace TestWebsite
 	{
 		Publisher GetPublisherByID(int publisherID);
 		bool PlacePublisherOrder(Dictionary<int, int[]> cart);
-
-
+		List<Publisher> GetAllPublishers();
     }
 }
 
