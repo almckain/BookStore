@@ -1,0 +1,121 @@
+BookID,Publisher ID,Title,CoverImagePath,ISBN,AuthorID,GenreID,Price
+1,1,Fundamentals of Wavelets,images/fundamentalsofwavelets.png,9781845646424,1,1,258
+2,1,Data Smart,images/datasmart.png,9781118661468,2,2,45
+3,2,God Created the Integers,images/godcreated.png,9780762430048,3,3,30
+4,3,Superfreakonomics,images/super.png,9780060889586,4,4,16.99
+5,2,Orientalism,images/orientalism.png,9780060889586,5,5,16.99
+6,4,"Nature of Statistical Learning Theory, The",images/natureofstats.png,9781441931603,6,2,219.99
+7,5,Integration of the Indian States,images/integrationoftheindianstates.png,9780861314652,7,5,30.21
+8,2,"Drunkard's Walk, The",images/drunkardswalk.png,9780307275172,8,6,16
+9,6,Image Processing & Mathematical Morphology,images/imageprocessing.png,ISBN9781315218557,9,1,42.67
+10,2,How to Think Like Sherlock Holmes,images/sherlockthinking.png,9780143124344,10,7,15.99
+11,7,Data Scientists at Work,images/datascientistsatwork.png,9781430265986,11,2,37.99
+12,8,Slaughterhouse Five,images/slaughterhousefive.png,9780385333849,12,8,15.99
+13,9,Birth of a Theorem,images/birthoftheorem.png,9780374536671,13,3,18
+14,10,Structure & Interpretation of Computer Programs,images/structandinterpretation.png,9780262543231,14,9,75
+15,2,"Age of Wrath, The",images/ageofwrath.png,9780143422266,15,5,42.46
+16,8,"Trial, The",images/thetrial.png,9789176372210,16,8,8.4
+17,10,Statistical Decision Theory',images/statsdecisiontheory.png,9783642404320,17,2,54.99
+18,7,Data Mining Handbook,images/datamining.png,9780124166325,18,2,99.95
+19,2,"New Machiavelli, The",images/machiavelli.png,9781483702933,19,8,17.99
+20,2,Physics & Philosophy,images/physicsandphilo.png,9780061209192,20,6,17.99
+21,11,Making Software,images/makingsoftware.png,9780596808327,21,9,38.18
+22,12,"Analysis, Vol I",images/analysis.png,9789380250649,22,3,36.75
+23,11,Machine Learning for Hackers,images/machinelearningforhackers.png,9781449330538,23,2,32.49
+24,2,"Signal and the Noise, The",images/thesignalandthenoise.png,9780143125082,24,2,17.99
+25,11,Python for Data Analysis,images/pythondataanalysis.png,9781098104030,25,2,79.99
+26,10,Introduction to Algorithms,images/introtoalgs.png,9780262367509,26,9,84.99
+27,2,"Beautiful and the Damned, The",images/thebeautifulandthedamned.png,9780865478732,27,10,18
+28,2,"Outsider, The",images/outsider.png,9782806269140,28,8,6.49
+29,8,"Complete Sherlock Holmes, The - Vol I",images/sherlockvol1.png,9781434103567,29,8,43.99
+30,8,"Complete Sherlock Holmes, The - Vol II",images/sherlockvol2.png,9781593080402,29,8,11.95
+31,8,"Wealth of Nations, The",images/thewealthofnations.png,9781435172449,30,4,15
+32,8,"Pillars of the Earth, The",images/pillarsofearth.png,9780451222138,31,8,17.49
+33,13,Mein Kampf,images/yikes.png,89859825323,32,10,19.99
+34,2,"Tao of Physics, The",images/taoofphysics.png,9781590308356,33,6,17.95
+35,8,Surely You're Joking Mr Feynman,images/mrfeynman.png,9780393355628,34,6,14.49
+36,13,"Farewell to Arms, A",images/farewelltoarms.png,9781476764528,35,8,15.99
+37,14,"Veteran, The",images/veteran.png,9781466863057,36,8,11.99
+38,15,False Impressions,images/falseimpressions.png,9781250323309,37,8,38
+39,16,"Last Lecture, The",images/lastlecture.png,9781401323257,38,10,21.49
+40,2,Return of the Primitive,images/returnoftheprimitive.png,9780452011847,39,11,24
+41,8,Jurassic Park,images/jurassicpark.png,9780345538987,40,8,8.99
+42,2,"Russian Journal, A",images/russianjournal.png,9780141180199,41,10,16
+43,3,Tales of Mystery and Imagination,images/mysteryandimagination.png,9780151002344,42,8,6.71
+44,2,Freakonomics,images/freakonomics.png,9780063032378,4,4,11.73
+45,3,"Hidden Connections, The",images/hiddenconnections.png,9780385494724,33,6,20
+46,17,"Story of Philosophy, The",images/storyofphilosophy.png,9780671201593,43,11,17.98
+47,18,Asami Asami,images/asamiasami.png,9788174868633,44,8,20
+48,2,Journal of a Novel,images/journalofanovel.png,9780140144185,41,8,16
+49,2,Once There Was a War,images/oncetherewasaware.png,9780143104797,41,10,17
+50,2,"Moon is Down, The",images/themoonisdown.png,9780140187465,41,8,13.49
+51,8,"Brethren, The",images/brethern.png,9780345531971,45,8,9.99
+52,13,In a Free State,images/inafreestate.png,9781400030552,46,8,16.95
+53,8,Catch 22,images/catch22.png,9781451626650,47,8,17.99
+54,19,"Complete Mastermind, The",images/thecompletemastermind.png,9780143029236,48,10,20
+55,8,Dylan on Dylan,images/dylanondylan.png,9780340923146,49,10,3.83
+56,20,Soft Computing & Intelligent Systems,images/softcomputingandintelligentsystems.png,9781394166374,50,2,195
+57,21,Textbook of Economic Theory,images/textbookofeconomictheory.png,9780582295308,51,4,6.58
+58,21,Econometric Analysis,images/econometricanalysis.png,9780134461366,52,4,299.99
+59,11,Learning OpenCV,images/learningopencv.png,9781789531619,53,2,49.99
+60,23,Data Structures Using C & C++,images/datastructsusingcandc.png,9780130369970,54,9,96.9
+61,21,"Computer Vision, A Modern Approach",images/computervision.png,9789332550117,55,2,28.62
+62,22,Principles of Communication Systems,images/principlesofcommsystems.png,9780070629554,56,9,27.99
+63,23,Let Us C,images/letusc.png,9789355512765,57,9,13.89
+64,8,"Amulet of Samarkand, The",images/theamuletof.png,9781423111467,58,8,7.69
+65,2,Crime and Punishment,images/crimeandpunishment.png,9780140449136,59,8,16
+66,8,Angels & Demons,images/angelsanddemons.png,9780743493468,60,8,18.99
+67,24,"Argumentative Indian, The",images/argumentativeindian.png,9780312426026,61,10,24
+68,2,Sea of Poppies,images/seaofpoppies.png,9780312428594,62,8,25
+69,2,"Idea of Justice, The",images/ideaofjustice.png,9780674060470,61,10,30
+70,2,"Raisin in the Sun, A",images/raisininthesun.png,9780573614637,63,8,16.95
+71,8,All the President's Men,images/presidentsmen.png,9781476770512,64,5,16.98
+72,15,"Prisoner of Birth, A",images/PrisonerOfBirth.png,9781250903051,37,8,40
+73,3,Scoop!,images/Scoop.png,9788172236434,65,5,12
+74,18,Ahe Manohar Tari,images/AheManoharTari.png,9788174868909,66,10,16
+75,2,"Last Mughal, The",images/LastMughal.png,9781400078332,67,5,20
+76,4,"Social Choice & Welfare, Vol 39 No. 1",images/SocialChoice&Welfare.png,9780444829146,68,4,136.31
+77,18,Dune,images/Dune.png,9780593549230,44,8,32.99
+78,18,Dune Messiah,images/DuneMessiah.png,9780593201732,44,8,14.99
+79,18,Children of Dune,images/ChildrenOfDune.png,9780593201749,44,8,14.99
+80,18,Maqta-e-Ghalib,images/Maqta-e-Ghalib.png,9781719351461,69,8,14.99
+81,3,Beyond Degrees,images/BeyondDegrees.png,9783598243691,91,10,196
+82,18,Manasa,images/Manasa.png,9788177665437,70,10,14.99
+83,2,India from Midnight to Milennium,images/IndiaFromMidnightToMilennium.png,9781611454123,71,5,16.95
+84,,Tempting the Player,images/TemptingThePlayer.png,9781951815523,90,5,5.99
+85,2,"Great Indian Novel, The",images/GreatIndianNovel.png,9781611453188,71,8,19.99
+86,25,O Jerusalem!,images/OJerusalem.png,9780671211639,72,5,30.94
+87,25,"City of Joy, The",images/CityOfJoy.png,9780446355568,72,8,8.99
+88,25,Freedom at Midnight,images/FreedomAtMidnight.png,9780002160551,72,5,17.99
+89,2,"Winter of Our Discontent, The",images/WinterOfOurDiscontent.png,9780143039488,41,8,14.99
+90,26,On Education,images/OnEducation.png,9780415487405,73,11,32.95
+91,27,Free Will,images/FreeWill.png,9781451683400,74,11,13.99
+92,2,Bookless in Baghdad,images/BooklessInBaghdad.png,9781628721911,71,10,10.99
+93,1,"Case of the Lame Canary, The",images/CaseOfTheLameCanary.png,2940172294044,75,8,35.99
+94,28,"Theory of Everything, The",images/TheoryOfEverything.png,9781614670322,3,6,8.99
+95,2,New Markets & Other Essays,images/NewMarkets&OtherEssays.png,9780691117829,76,4,34
+96,2,Electric Universe,images/ElectricUniverse.png,9780307335982,77,6,20
+97,8,"Hunchback of Notre Dame, The",images/HunchbackOfNotreDame.png,9781593081409,94,8,10.95
+98,2,Burning Bright,images/BurningBright.png,9781598530049,41,8,40
+99,8,"Age of Discontuinity, The",images/AgeOfDiscontuinity.png,9781560006183,76,4,59.95
+100,2,Doctor in the Nude,images/DoctorInTheNude.png,9780755131044,93,8,6.49
+101,2,Down and Out in Paris & London,images/DownAndOutInParis&London.png,9780156262248,78,10,17.49
+102,2,Identity & Violence,images/Identity&Violence.png,2940174819047,61,11,19.99
+103,8,Beyond the Three Seas,images/BeyondTheThreeSeas.png,9780615472362,67,5,5.95
+104,28,Harry Potter and the Sorcerer's Stone,images/HarryPotter.png,9781338878929,89,8,12.99
+105,3,"Straight Talk, No Chaser",images/StraightTalk.png,9780061728969,79,10,16.99
+106,29,"Maugham's Collected Short Stories, Vol 3",images/MaughamsCollectedShortStories.png,9780140185911,80,8,22
+107,,"Phantom of Manhattan, The",images/PhantomOfManhattan.png,9781429974028,36,8,11.99
+108,29,Ashenden of The British Agent,images/AshendenOfTheBritishAgent.png,9783668034624,80,8,20
+109,29,Zen & The Art of Motorcycle Maintenance,images/Zen&TheArtofMotorcycleMaintenance.png,9780061673733,81,11,17.99
+110,3,Dividing the Spoils: The War for Alexander the Great's Empire,images/DividingTheSpoils,9780199931521,82,5,20.99
+111,2,We the Living,images/WeTheLiving.png,9780451233264,39,8,20
+112,30,"Artist and the Mathematician, The",images/ArtistAndTheMathematician.png,9780786732883,83,6,9.99
+113,26,History of Western Philosophy,images/HistoryOfWesternPhilosophy.png,9780671201586,73,11,25.98
+114,28,Selected Short Stories,images/SelectedShortStories.png,9780486811192,88,8,5
+115,4,Rationality & Freedom,images/Rationality&Freedom.png,9780674013513,61,4,37
+116,31,Clash of Civilizations and Remaking of the World Order,images/ClashOfCivilizations.png,9781451628975,84,5,16.99
+117,32,The Tao of Physics,images/TheTaoOfPhysics.png,9781590308356,33,10,17.95
+118,33,One,images/One.png,9780440205623,85,10,7.99
+119,4,Karl Marx Biography,images/KarlMarxBio.png,9781599861937,87,10,9.99
+120,2,To Sir With Love,images/ToSirWithLove.png,9781480457515,86,8,14.99

@@ -1,0 +1,1 @@
+To populate our tables, we used an Azure extension called SQL Server Import which allowed us to upload the CSVs with our data and fill the database.
