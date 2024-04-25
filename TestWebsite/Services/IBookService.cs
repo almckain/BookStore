@@ -6,7 +6,6 @@ namespace TestWebsite
 	{
 		List<Book> GetBooks();
 		List<Book> GetBestSellers();
-		List<Book> GetBooksByOrderNumber(int orderNumber);
 		List<Genre> GetAllGenres();
 		List<Book> GetBooksByGenres(List<int> id);
 		List<Book> GetBooksByPublishers(int id);

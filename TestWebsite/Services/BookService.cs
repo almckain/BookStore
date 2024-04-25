@@ -7,10 +7,6 @@ namespace TestWebsite
 {
 	public class BookService : DatabaseService, IBookService
 	{
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
         public List<Book> GetBooks()
         {
             List<Book> AllBooks = new List<Book>();
@@ -54,10 +50,6 @@ namespace TestWebsite
             return AllBooks;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
         public List<Book> GetBestSellers()
         {
             List<Book> BestSellers = new List<Book>();
@@ -101,22 +93,6 @@ namespace TestWebsite
             return BestSellers;
         }
 
-        
-        /*
-         *  Eventually there may be another query to return all the books with a given order id???
-         */
-        public List<Book> GetBooksByOrderNumber(int orderNumber)
-        {
-            // Hardcoded for demonstration; you'll replace this with actual logic to fetch data
-            var allBooks = GetBooks();
-            //return allBooks.Where(book => book.OrderNumber == orderNumber).ToList();
-            return null;
-        }
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <returns></returns>
         public List<Genre> GetAllGenres()
         {
             List<Genre> genres = new List<Genre>();
@@ -156,11 +132,6 @@ namespace TestWebsite
             return genres;
         }
 
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="ids"></param>
-        /// <returns></returns>
         public List<Book> GetBooksByGenres(List<int> ids)
         {
             
@@ -211,13 +182,6 @@ namespace TestWebsite
             return books;
         }
 
-
-
-        /// <summary>
-        /// Returns details of the request book
-        /// </summary>
-        /// <param name="id">Book id</param>
-        /// <returns>Book with selected details</returns>
         public Book GetBookDetails(int id)
         {
             Book currentBook = new Book();
