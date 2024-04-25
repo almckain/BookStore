@@ -149,6 +149,46 @@ namespace TestWebsite
             }
             return topCustomers;
         }
+
+        public List<MonthlyProfit> GetMonthlyProfit()
+        {
+            List<MonthlyProfit> monthlySalesDataList = new List<MonthlyProfit>();
+            try
+            {
+                using (var connection = GetConnection())
+                {
+                    connection.Open();
+
+                    string procedureToCall = "GetMonthlyProfit";
+                    using (var command = new SqlCommand(procedureToCall, connection)
+                    {
+                        CommandType = CommandType.StoredProcedure
+                    })
+                    {
+                        using (SqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                var monthlySalesData = new MonthlyProfit
+                                {
+                                    Month = reader["Month"] != DBNull.Value ? Convert.ToInt32(reader["Month"]) : 0,
+                                    Year = reader["Year"] != DBNull.Value ? Convert.ToInt32(reader["Year"]) : 0,
+                                    Profit = reader["MonthlyProfit"] != DBNull.Value ? Convert.ToDecimal(reader["MonthlyProfit"]) : 0m
+                                };
+                                monthlySalesDataList.Add(monthlySalesData);
+                            }
+                        }
+                    }
+                }
+            }
+            catch (SqlException e)
+            {
+                Console.WriteLine("\n\nError Connecting to database: " + e.ToString() + "\n\n");
+                System.Diagnostics.Debug.WriteLine(e.ToString());
+            }
+
+            return monthlySalesDataList;
+        }
     }
 }
 

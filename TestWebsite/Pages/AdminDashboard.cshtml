@@ -2,7 +2,6 @@
 @model TestWebsite.Pages.AdminDashboardModel
 @{
 }
-
 <div class="dashboard-section">
     <div class="dashboard-header">
         <h2>Admin Dashboard</h2>
@@ -90,3 +89,21 @@
         </tbody>
     </table>
 </section>
+
+<section class="dashboard-section">
+    <h2>Monthly Profit (Past 6 Months)</h2>
+    <div class="row">
+        @foreach (var profit in Model.MonthlyProfits)
+        {
+            <div class="col-md-4 col-sm-6">
+                <div class="card mb-3">
+                    <div class="card-header">@profit.MonthYearDisplay</div>
+                    <div class="card-body">
+                        <h5 class="card-title">Profit: $@profit.Profit.ToString("N2")</h5>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</section>
+

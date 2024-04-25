@@ -19,6 +19,8 @@ namespace TestWebsite.Pages
         public List<Book> LowStockBooks { get; set; }
         public List<RecentStockRefillViewModel> RecentStockRefills { get; set; }
         public List<Customer> TopCustomers { get; set; }
+        public List<MonthlyProfit> MonthlyProfits { get; set; }
+
 
         [BindProperty]
         public Dictionary<int, int> StockUpdates { get; set; } = new Dictionary<int, int>();
@@ -41,6 +43,7 @@ namespace TestWebsite.Pages
             LowStockBooks = _adminService.GetLowStockBooks();
             RecentStockRefills = _adminService.GetRecentStockRefills();
             TopCustomers = _adminService.GetTopCustomers();
+            MonthlyProfits = _adminService.GetMonthlyProfit();
             foreach (var book in LowStockBooks)
             {
 

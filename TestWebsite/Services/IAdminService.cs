@@ -1,4 +1,6 @@
 ﻿using System;
+using TestWebsite.Models;
+
 namespace TestWebsite
 {
 	public interface IAdminService
@@ -6,7 +8,7 @@ namespace TestWebsite
 		List<Book> GetLowStockBooks();
 		List<RecentStockRefillViewModel> GetRecentStockRefills();
 		List<Customer> GetTopCustomers();
-
+		List<MonthlyProfit> GetMonthlyProfit();
     }
 }
 
